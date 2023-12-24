@@ -9,10 +9,10 @@ FROM rocker/shiny-verse:latest
 
 # system libraries of general use
 ## install debian packages
-RUN apt-get update -qq && apt-get -y --no-install-recommends install \
-    libxml2-dev \
-    libcairo2-dev \
-    libsqlite3-dev \ 
+#RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+#    libxml2-dev \
+#    libcairo2-dev \
+#    libsqlite3-dev \ 
 
 ######Install PhantomJS#####
 
@@ -23,12 +23,12 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
 # RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin
 
 ## update system libraries
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get clean
+#RUN apt-get update && \
+#    apt-get upgrade -y && \
+#    apt-get clean
 
 # Delete file in folder app
-RUN rm -rf /app
+#RUN rm -rf /app
 
 # copy necessary files to the app folder
 COPY / ./app
