@@ -2,7 +2,9 @@
 # FROM python:3.8
  
 # Base image https://hub.docker.com/u/rocker/
-FROM rocker/shiny-verse:latest
+#FROM rocker/shiny-verse:latest
+
+FROM  10.2.200.51:5000/r-base-datalis:new
 
 #Disable Selinux#
 # RUN echo 'SELINUX=disabled' > /etc/selinux/config
