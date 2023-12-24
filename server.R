@@ -2,19 +2,9 @@
 library(shiny)
 library(DT)
 library(RColorBrewer)
- 
 
 # Define any Python packages needed for the app here:
-PYTHON_DEPENDENCIES = c('pip', 'numpy', 'pandas' )
-
-reticulate::virtualenv_create(envname = 'python3_env', 
-                              #python = '/usr/bin/python3',
-                              version = '3.8')
-
-reticulate::virtualenv_install('python3_env',packages = PYTHON_DEPENDENCIES) 
- 
-use_virtualenv("python3_env")
- 
+PYTHON_DEPENDENCIES = c('pip', 'numpy')
 
 # Begin app server
 shinyServer(function(input, output) {
@@ -25,12 +15,9 @@ shinyServer(function(input, output) {
   python_path = Sys.getenv('PYTHON_PATH')
   
   # Create virtual env and install dependencies
-  reticulate::virtualenv_create(envname = virtualenv_dir, python = ">=3.9")
+  reticulate::virtualenv_create(envname = virtualenv_dir, python = python_path)
   reticulate::virtualenv_install(virtualenv_dir, packages = PYTHON_DEPENDENCIES, ignore_installed=TRUE)
   reticulate::use_virtualenv(virtualenv_dir, required = T)
-  
-   
-  
   
   # ------------------ App server logic (Edit anything below) --------------- #
   
