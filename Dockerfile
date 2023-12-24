@@ -1,3 +1,16 @@
+# Base image for Python
+FROM python:3.8
+
+# Delete file in folder app
+RUN rm -rf /app
+
+# copy necessary files to the app folder
+COPY / ./app
+
+# install python dependencies
+RUN pip install -r requirements.txt
+
+
 # Base image https://hub.docker.com/u/rocker/
 FROM rocker/shiny-verse:latest
 
@@ -24,11 +37,6 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get clean
 
-# Delete file in folder app
-RUN rm -rf /app
-
-# copy necessary files to the app folder
-COPY / ./app
 
 # install packages
 RUN Rscript /app/install_packages.R
