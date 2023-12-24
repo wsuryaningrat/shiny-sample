@@ -6,7 +6,7 @@
 FROM rocker/shiny-verse:latest
 
 #Disable Selinux#
-RUN echo 'SELINUX=disabled' > /etc/selinux/config
+# RUN echo 'SELINUX=disabled' > /etc/selinux/config
 
 # system libraries of general use
 ## install debian packages
