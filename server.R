@@ -2,12 +2,7 @@
 library(shiny)
 library(DT)
 library(RColorBrewer)
-
-reticulate::conda_create("python3_env", python_version="3.8")
-reticulate::use_condaenv("python3_env")
-reticulate::conda_install("python3_env", packages = PYTHON_DEPENDENCIES)
-
-
+ 
 
 # Define any Python packages needed for the app here:
 PYTHON_DEPENDENCIES = c('pip', 'numpy', 'pandas'
