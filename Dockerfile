@@ -1,7 +1,6 @@
 # Base image for Python
 # FROM python:3.8
-
-
+ 
 # Base image https://hub.docker.com/u/rocker/
 FROM rocker/shiny-verse:latest
 
